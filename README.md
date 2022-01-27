@@ -13,10 +13,10 @@ will be direct siblings, which will showcase the role that Redux plays in the ap
           /     \
         List   Panel
         
-Please note that styling will be kept to a minimum, as this app is intended to be for demonstration purposes.
-
+Please note that because this app is intended for demonstration purposes, styling will be kept to a minimum, and the 
+Redux Toolkit (@reduxjs/toolkit) package will be used to reduce the amount of boilerplate code that usually needs to
+be written to configure a Redux app.
 # Table of contents
-- [Project Title](#project-title)
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
