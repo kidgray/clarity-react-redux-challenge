@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { App } from './App.js';
+import userListReducer from './features/userList.js';
 import './styles/styles.scss';
 
 const store = configureStore({
-    reducer: {}
+    reducer: {
+        userList: userListReducer
+    }
 });
 
 ReactDOM.render(
