@@ -14,15 +14,15 @@ const initialStateValue = [{
     }
 }];
 
-export const userListSlice = createSlice({
-    name: 'userList',
+export const selectedUserListSlice = createSlice({
+    name: 'selectedUserList',
     initialState: { value: initialStateValue },
     reducers: {
-        populate: (state, action) => {
+        update: (state, action) => {
             state.value = action.payload
         }
     }
 });
 
-export const { populate } = userListSlice.actions;
-export default userListSlice.reducer;
+export const { update } = selectedUserListSlice.actions;
+export default selectedUserListSlice.reducer;
