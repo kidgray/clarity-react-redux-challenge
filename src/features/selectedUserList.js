@@ -20,9 +20,18 @@ export const selectedUserListSlice = createSlice({
     reducers: {
         update: (state, action) => {
             state.value = action.payload
+        },
+        updateSelectedUser: (state, action) => {
+            const id = parseInt(action.payload.targetUserID);
+
+            state.value = state.value.map((currUser) => 
+                    currUser.id === id 
+                        ? { ...currUser, [action.payload.fieldName]: action.payload.fieldValue } 
+                        : currUser
+            );
         }
     }
 });
 
-export const { update } = selectedUserListSlice.actions;
+export const { update, updateSelectedUser } = selectedUserListSlice.actions;
 export default selectedUserListSlice.reducer;

@@ -34,8 +34,6 @@ export const UserList = () => {
     }
     
     const handleClickSelectUserButton = (event) => {
-        console.log(selectedUsers);
-
         dispatch(update(selectedUsers));
     }
 

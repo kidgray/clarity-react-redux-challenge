@@ -1,5 +1,6 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import './base/settings.scss';
 @import './base/_base.scss';
-@import "~bootstrap/scss/bootstrap";
 @import '../components/user-list/user-list.styles.scss';
 @import '../components/selected-user-panel/selected-user-panel.styles.scss';
