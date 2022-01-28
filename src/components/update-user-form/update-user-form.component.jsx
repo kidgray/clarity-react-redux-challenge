@@ -19,7 +19,8 @@ export const UpdateUserForm = ({ targetUser }) => {
         setFieldValue(event.target.value);
     }
 
-    const handleClickAddFieldButton = (event) => {
+    const handleSubmitUpdateUserForm = (event) => {
+        event.preventDefault();
         const targetUserID = event.target.getAttribute('label');
 
         const targetUserData = {
@@ -30,10 +31,13 @@ export const UpdateUserForm = ({ targetUser }) => {
 
         dispatch(updateUser(targetUserData));
         dispatch(updateSelectedUser(targetUserData));
+
+        setFieldName('');
+        setFieldValue('');
     }
 
     return (
-        <Form className='update-user-form'>
+        <Form className='update-user-form' label={targetUser.id} onSubmit={handleSubmitUpdateUserForm}>
             <Form.Group controlId='updateUserForm'>
                 <Form.Control
                     type='text'
@@ -47,7 +51,7 @@ export const UpdateUserForm = ({ targetUser }) => {
                     value={fieldValue}
                     onChange={handleChangeFieldValue}
                 />
-                <Button label={targetUser.id} onClick={handleClickAddFieldButton}> Add Field </Button>
+                <Button type='submit'> Add Field </Button>
             </Form.Group>
         </Form>
     );
