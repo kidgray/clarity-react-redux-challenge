@@ -26,7 +26,9 @@ export const selectedUserListSlice = createSlice({
 
             state.value = state.value.map((currUser) => 
                     currUser.id === id 
-                        ? { ...currUser, [action.payload.fieldName]: action.payload.fieldValue } 
+                        ? { ...currUser, 
+                            profile: { ...currUser.profile, [action.payload.fieldName]: action.payload.fieldValue }
+                        } 
                         : currUser
             );
         }
