@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
 import { Button, ListGroup } from 'react-bootstrap';
 import { populate } from '../../features/userList.js';
 import { update } from '../../features/selectedUserList.js';
@@ -42,10 +43,22 @@ export const UserList = () => {
             <Button variant='outline-primary populate-user-list-button' onClick={handleClickPopulateButton}> Get users </Button>
             <Button variant='outline-primary display-selected-user-list-button' onClick={handleClickSelectUserButton}> Display Selected User Details</Button>
 
+            {
+                selectedUsers.length > 0 &&
+                <>
+                <ListGroup className='selected-user-list' horizontal>
+                    <div className='selected-user-list__title'> Selected Users: </div>
+                    {
+                        selectedUsers.map((currUser) => <ListGroup.Item key={nanoid()}> { currUser.name } </ListGroup.Item>)
+                    }
+                </ListGroup>
+                </>
+            }
+
             <ListGroup>
                 { 
-                    userList.map((currUser, idx) => 
-                        <ListGroup.Item action onClick={() => handleClickUserListItem(currUser)} key={idx}>
+                    userList.map((currUser) => 
+                        <ListGroup.Item action onClick={() => handleClickUserListItem(currUser)} key={nanoid()}>
                             <div> { currUser.name } </div>
                             <div> { currUser.company } </div>
                         </ListGroup.Item>

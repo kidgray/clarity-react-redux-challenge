@@ -35,9 +35,6 @@ the following command:
 
 ```yarn install```
 
-# Usage
-[(Back to top)](#table-of-contents)
-
 NOTE: This project uses the following ports:
 
     Client: Port 8080
@@ -51,3 +48,30 @@ On the terminal, start the client by using the command:
 Upon success, the client may be accessed at:
 
     http://localhost:8080
+
+# Usage
+[(Back to top)](#table-of-contents)
+
+### Fetching the User List
+
+To fetch the list of users, click the "Get Users" button. The users will be displayed in a list on the left-hand side of the screen.
+
+### Selecting Users
+To select a user, click their tab on the User List. A list of currently selected users will be displayed in a list located directly above the User List.
+
+### Displaying User Details
+
+To display a detailed list of selected users, click the "Display Selected User List" button. This will display a list of collapsible items that
+may be expanded in order to see a user's details.
+
+### Adding Fields to a User
+
+To add a field to a user, first select the user and click the "Display Selected User List" button to add them to the Selected User Detail List 
+on the right-hand side of the screen. Expand the desired user's tab by clicking on it, then enter the name of the field and its desired value into 
+the form located at the bottom of the expanded tab.
+
+### Resetting the User List
+
+To reset the user list, first remove all users from your selected user list by clicking on their corresponding tab in the User List on the left-hand side
+of the screen. Once all users have been deselected, click the "Display Selected User Details" list to dismiss the Selected User Details List on the right-hand
+side of the screen. Then, click the "Get Users" button. 
