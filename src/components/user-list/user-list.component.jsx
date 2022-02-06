@@ -33,8 +33,20 @@ export const UserList = () => {
             setSelectedUsers([...selectedUsers, user]);
         }
     }
+
+    const updateSelectedUserList = async (list = selectedUsers) => {
+        const updatedSelectedUsers = list.map((currUser) => {
+            return userList.find((user) => user.id === currUser.id);
+        });
+
+        console.log(updatedSelectedUsers);
+
+        await setSelectedUsers(updatedSelectedUsers);
+    }
     
     const handleClickSelectUserButton = (event) => {
+        updateSelectedUserList();
+
         dispatch(update(selectedUsers));
     }
 

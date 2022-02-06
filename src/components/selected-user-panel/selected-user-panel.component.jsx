@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
 import { Accordion } from 'react-bootstrap';
 import { UpdateUserForm } from '../update-user-form/update-user-form.component.jsx';
 
@@ -12,11 +13,11 @@ export const SelectedUserPanel = () => {
             let currUserProfileArray = [];
 
             for (let key in currUser.profile) {
-                currUserProfileArray.push(<div key={(Math.random() * 1000) + 50}> { key }: { currUser.profile[key] } </div>)
+                currUserProfileArray.push(<div key={nanoid()}> { key }: { currUser.profile[key] } </div>)
             }
     
             return (
-                <Accordion.Item eventKey={idx} key={idx}>
+                <Accordion.Item eventKey={idx} key={nanoid()}>
                     <Accordion.Header> { currUser.name } </Accordion.Header>
                     <Accordion.Body>
                         <div> id: { currUser.id } </div>
