@@ -72,8 +72,8 @@ export const UserList = () => {
 
                     <ListGroup>
                         { 
-                            userList.map((currUser) => 
-                                <ListGroup.Item action onClick={() => handleClickUserListItem(currUser)} key={nanoid()}>
+                            userList.map((currUser, idx) => 
+                                <ListGroup.Item data-testid={`user-list-item-${idx}`} action onClick={() => handleClickUserListItem(currUser)} key={nanoid()}>
                                     <div> { currUser.name } </div>
                                     <div> { currUser.company } </div>
                                 </ListGroup.Item>
