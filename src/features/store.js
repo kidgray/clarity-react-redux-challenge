@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userListReducer from './userList.js';
-import selectedUserListReducer from './selectedUserList.js';
+import { configureStore } from "@reduxjs/toolkit";
+import userListReducer from "./userList.js";
+import selectedUserListReducer from "./selectedUserList.js";
 
 
 export const store = configureStore({

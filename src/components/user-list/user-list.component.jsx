@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-import { Button, ListGroup } from 'react-bootstrap';
-import { populate } from '../../features/userList.js';
-import { update } from '../../features/selectedUserList.js';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { Button, ListGroup } from "react-bootstrap";
+import { populate } from "../../features/userList.js";
+import { update } from "../../features/selectedUserList.js";
+import axios from "axios";
 
 export const UserList = () => {
     const [selectedUsers, setSelectedUsers] = useState([]);
@@ -15,7 +15,7 @@ export const UserList = () => {
         event.preventDefault();
 
         await axios
-        .get('https://immense-bastion-95145.herokuapp.com/api/users')
+        .get("https://immense-bastion-95145.herokuapp.com/api/users")
         .then(res => {
             dispatch(populate(res.data.users));
         })
@@ -51,9 +51,9 @@ export const UserList = () => {
     }
 
     return (
-        <div className='user-list-div'>
-            <Button variant='outline-primary populate-user-list-button' onClick={handleClickPopulateButton}> Get users </Button>
-            <Button variant='outline-primary display-selected-user-list-button' onClick={handleClickSelectUserButton}> Display Selected User Details</Button>
+        <div className="user-list-div">
+            <Button variant="outline-primary populate-user-list-button" onClick={handleClickPopulateButton}> Get users </Button>
+            <Button variant="outline-primary display-selected-user-list-button" onClick={handleClickSelectUserButton}> Display Selected User Details</Button>
 
             {
                 userList.length > 0 &&
@@ -61,8 +61,8 @@ export const UserList = () => {
                     {
                         selectedUsers.length > 0 &&
                         <>
-                        <ListGroup className='selected-user-list' horizontal>
-                            <div className='selected-user-list__title'> Selected Users: </div>
+                        <ListGroup className="selected-user-list" horizontal>
+                            <div className="selected-user-list__title"> Selected Users: </div>
                             {
                                 selectedUsers.map((currUser) => <ListGroup.Item key={nanoid()}> { currUser.name } </ListGroup.Item>)
                             }

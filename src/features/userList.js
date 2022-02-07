@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialStateValue = [];
 
 export const userListSlice = createSlice({
-    name: 'userList',
+    name: "userList",
     initialState: { value: initialStateValue },
     reducers: {
         populate: (state, action) => {

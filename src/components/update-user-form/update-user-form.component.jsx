@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Button, Form } from 'react-bootstrap';
-import { updateUser } from '../../features/userList.js';
-import { updateSelectedUser } from '../../features/selectedUserList.js';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Button, Form } from "react-bootstrap";
+import { updateUser } from "../../features/userList.js";
+import { updateSelectedUser } from "../../features/selectedUserList.js";
 
 export const UpdateUserForm = ({ targetUser }) => {
-    const [fieldName, setFieldName] = useState('');
-    const [fieldValue, setFieldValue] = useState('');
+    const [fieldName, setFieldName] = useState("");
+    const [fieldValue, setFieldValue] = useState("");
     const dispatch = useDispatch();
 
     const handleChangeFieldName = (event) => {
@@ -21,7 +21,7 @@ export const UpdateUserForm = ({ targetUser }) => {
 
     const handleSubmitUpdateUserForm = (event) => {
         event.preventDefault();
-        const targetUserID = event.target.getAttribute('label');
+        const targetUserID = event.target.getAttribute("label");
 
         const targetUserData = {
             targetUserID: targetUserID,
@@ -32,26 +32,26 @@ export const UpdateUserForm = ({ targetUser }) => {
         dispatch(updateUser(targetUserData));
         dispatch(updateSelectedUser(targetUserData));
 
-        setFieldName('');
-        setFieldValue('');
+        setFieldName("");
+        setFieldValue("");
     }
 
     return (
-        <Form className='update-user-form' label={targetUser.id} onSubmit={handleSubmitUpdateUserForm}>
-            <Form.Group controlId='updateUserForm'>
+        <Form className="update-user-form" label={targetUser.id} onSubmit={handleSubmitUpdateUserForm}>
+            <Form.Group controlId="updateUserForm">
                 <Form.Control
-                    type='text'
-                    placeholder='Field name'
+                    type="text"
+                    placeholder="Field name"
                     value={fieldName}
                     onChange={handleChangeFieldName}
                 />
                 <Form.Control 
-                    type='text'
-                    placeholder='Field value'
+                    type="text"
+                    placeholder="Field value"
                     value={fieldValue}
                     onChange={handleChangeFieldValue}
                 />
-                <Button type='submit'> Add Field </Button>
+                <Button type="submit"> Add Field </Button>
             </Form.Group>
         </Form>
     );

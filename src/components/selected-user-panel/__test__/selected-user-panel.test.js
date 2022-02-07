@@ -2,11 +2,11 @@
  * @jest-environment jsdom
  */
 
-import React from 'react';
-import { cleanup, screen } from '@testing-library/react';
-import { render } from '../../../utils/test-utils.js';
-import { SelectedUserPanel } from '../selected-user-panel.component.jsx';
-import '@testing-library/jest-dom';
+import React from "react";
+import { cleanup, screen } from "@testing-library/react";
+import { render } from "../../../utils/test-utils.js";
+import { SelectedUserPanel } from "../selected-user-panel.component.jsx";
+import "@testing-library/jest-dom";
 
 afterEach(cleanup);
 
@@ -18,3 +18,7 @@ test(
         expect(screen.queryByTestId(/selected-user-panel/i)).not.toBeInTheDocument();
     }
 );
+
+test(
+    ""
+)

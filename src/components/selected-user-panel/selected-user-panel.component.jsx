@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-import { Accordion } from 'react-bootstrap';
-import { UpdateUserForm } from '../update-user-form/update-user-form.component.jsx';
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { Accordion } from "react-bootstrap";
+import { UpdateUserForm } from "../update-user-form/update-user-form.component.jsx";
 
 export const SelectedUserPanel = () => {
     const selectedUserList = useSelector((state) => state.selectedUserList.value);
@@ -37,7 +37,7 @@ export const SelectedUserPanel = () => {
 
     return (
         localSelectedUserList.length > 0 &&
-        <Accordion data-testid='selected-user-panel' className='selected-user-panel'>
+        <Accordion data-testid="selected-user-panel" className="selected-user-panel">
             { 
                 localSelectedUserList
             }
