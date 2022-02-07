@@ -6,7 +6,7 @@ import { UpdateUserForm } from '../update-user-form/update-user-form.component.j
 
 export const SelectedUserPanel = () => {
     const selectedUserList = useSelector((state) => state.selectedUserList.value);
-    const [localSelectedUserList, setLocalSelectedUserList] = useState();
+    const [localSelectedUserList, setLocalSelectedUserList] = useState([]);
 
     useEffect(() => {
         const selectedUserListArray = selectedUserList.map((currUser, idx) => {
@@ -36,7 +36,8 @@ export const SelectedUserPanel = () => {
     }, [selectedUserList]);
 
     return (
-        <Accordion className='selected-user-panel'>
+        localSelectedUserList.length > 0 &&
+        <Accordion data-testid='selected-user-panel' className='selected-user-panel'>
             { 
                 localSelectedUserList
             }

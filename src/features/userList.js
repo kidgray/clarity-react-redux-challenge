@@ -1,18 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialStateValue = [{
-    company: "",
-    id: 0,
-    name: "",
-    position: "",
-    profile: {
-        age: 0,
-        gender: "",
-        planet: "",
-        species: "",
-        status: ""
-    }
-}];
+const initialStateValue = [];
 
 export const userListSlice = createSlice({
     name: 'userList',

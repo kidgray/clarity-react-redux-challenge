@@ -56,27 +56,32 @@ export const UserList = () => {
             <Button variant='outline-primary display-selected-user-list-button' onClick={handleClickSelectUserButton}> Display Selected User Details</Button>
 
             {
-                selectedUsers.length > 0 &&
+                userList.length > 0 &&
                 <>
-                <ListGroup className='selected-user-list' horizontal>
-                    <div className='selected-user-list__title'> Selected Users: </div>
                     {
-                        selectedUsers.map((currUser) => <ListGroup.Item key={nanoid()}> { currUser.name } </ListGroup.Item>)
+                        selectedUsers.length > 0 &&
+                        <>
+                        <ListGroup className='selected-user-list' horizontal>
+                            <div className='selected-user-list__title'> Selected Users: </div>
+                            {
+                                selectedUsers.map((currUser) => <ListGroup.Item key={nanoid()}> { currUser.name } </ListGroup.Item>)
+                            }
+                        </ListGroup>
+                        </>
                     }
-                </ListGroup>
+
+                    <ListGroup>
+                        { 
+                            userList.map((currUser) => 
+                                <ListGroup.Item action onClick={() => handleClickUserListItem(currUser)} key={nanoid()}>
+                                    <div> { currUser.name } </div>
+                                    <div> { currUser.company } </div>
+                                </ListGroup.Item>
+                            )
+                        }
+                    </ListGroup>
                 </>
             }
-
-            <ListGroup>
-                { 
-                    userList.map((currUser) => 
-                        <ListGroup.Item action onClick={() => handleClickUserListItem(currUser)} key={nanoid()}>
-                            <div> { currUser.name } </div>
-                            <div> { currUser.company } </div>
-                        </ListGroup.Item>
-                    )
-                }
-            </ListGroup>
         </div>
     );
 }
