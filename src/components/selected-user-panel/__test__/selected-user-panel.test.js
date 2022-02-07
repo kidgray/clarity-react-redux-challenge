@@ -18,7 +18,3 @@ test(
         expect(screen.queryByTestId(/selected-user-panel/i)).not.toBeInTheDocument();
     }
 );
-
-test(
-    ""
-)

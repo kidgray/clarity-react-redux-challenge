@@ -57,7 +57,7 @@ export const UserList = () => {
 
             {
                 userList.length > 0 &&
-                <>
+                <div data-testid="user-list-panel" className="user-list-panel">
                     {
                         selectedUsers.length > 0 &&
                         <>
@@ -80,7 +80,7 @@ export const UserList = () => {
                             )
                         }
                     </ListGroup>
-                </>
+                </div>
             }
         </div>
     );
