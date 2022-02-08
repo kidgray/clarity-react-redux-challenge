@@ -31,6 +31,6 @@ test(
         const userListPanel = await screen.findByTestId(/user-list-panel/i);
 
         expect(userListPanel).toBeInTheDocument();
-        expect(screen.getAllByTestId(/user-list-item-[0-9]+/i)).toHaveLength(7);
+        expect(screen.getAllByTestId(/user-list-item-[0-9]+$/i)).toHaveLength(7);
     }
 )

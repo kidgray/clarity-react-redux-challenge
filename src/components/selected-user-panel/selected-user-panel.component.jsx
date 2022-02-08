@@ -17,11 +17,11 @@ export const SelectedUserPanel = () => {
             }
     
             return (
-                <Accordion.Item eventKey={idx} key={nanoid()}>
-                    <Accordion.Header> { currUser.name } </Accordion.Header>
+                <Accordion.Item data-testid={`selected-user-list-item-${idx}`} eventKey={idx} key={nanoid()}>
+                    <Accordion.Header data-testid={`selected-user-list-item-${idx}-name`}> { currUser.name } </Accordion.Header>
                     <Accordion.Body>
                         <div> id: { currUser.id } </div>
-                        <div> company: { currUser.company } </div>
+                        <div data-testid={`selected-user-list-item-${idx}-company`}> company: { currUser.company } </div>
                         <div> position: { currUser.position } </div>
     
                         { currUserProfileArray }

@@ -51,7 +51,7 @@ export const UserList = () => {
     }
 
     return (
-        <div className="user-list-div">
+        <div data-testid="user-list-div" className="user-list-div">
             <Button variant="outline-primary populate-user-list-button" onClick={handleClickPopulateButton}> Get users </Button>
             <Button variant="outline-primary display-selected-user-list-button" onClick={handleClickSelectUserButton}> Display Selected User Details</Button>
 
@@ -74,8 +74,8 @@ export const UserList = () => {
                         { 
                             userList.map((currUser, idx) => 
                                 <ListGroup.Item data-testid={`user-list-item-${idx}`} action onClick={() => handleClickUserListItem(currUser)} key={nanoid()}>
-                                    <div> { currUser.name } </div>
-                                    <div> { currUser.company } </div>
+                                    <div data-testid={`user-list-item-${idx}-name`}> { currUser.name } </div>
+                                    <div data-testid={`user-list-item-${idx}-company`}> { currUser.company } </div>
                                 </ListGroup.Item>
                             )
                         }
