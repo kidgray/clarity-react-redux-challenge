@@ -37,7 +37,7 @@ export const UpdateUserForm = ({ targetUser }) => {
     }
 
     return (
-        <Form className="update-user-form" label={targetUser.id} onSubmit={handleSubmitUpdateUserForm}>
+        <Form data-testid={"update-user-form"} className="update-user-form" label={targetUser.id} onSubmit={handleSubmitUpdateUserForm}>
             <Form.Group controlId="updateUserForm">
                 <Form.Control
                     type="text"

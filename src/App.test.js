@@ -30,7 +30,7 @@ test(
 // INTEGRATION
 
 test(
-    "When a user is selected from the user list and the Display Selected Users button is clicked, the Selected User Panel is displayed and contains the user that was selected",
+    "When a user is selected from the user list and the Display Selected Users button is clicked, the Selected User Panel displays the selected user, and fields can be added to it",
     async () => {
         // Arrange
         const user = userEvent.setup();
@@ -54,6 +54,29 @@ test(
         expect(selectedUserPanel).toBeInTheDocument();
 
         // The user displayed in the Selected User Panel should be the one that was clicked
-        expect(screen.queryByTestId(/selected-user-list-item-0-name$/i)).toBeInTheDocument();
+        expect(screen.queryByTestId(/selected-user-list-item-0-name$/i).textContent).toBe(screen.queryByTestId(/^user-list-item-0-name$/i).textContent);
+
+        // Click on the user in the Selected User Panel
+        user.click(screen.queryByTestId(/selected-user-list-item-0$/i));
+
+        // Update User Form should be present
+        const testFieldName = "abc";
+        const testFieldValue = "123";
+        const newFieldName = screen.getByPlaceholderText(/field name$/i);
+        const newFieldValue = screen.getByPlaceholderText(/field value$/i);
+        const acceptButton = screen.getByRole("button", { name: /add field$/i });
+        expect(newFieldName).toBeInTheDocument();
+        expect(newFieldValue).toBeInTheDocument();
+        expect(acceptButton).toBeInTheDocument();
+
+        // Input new field parameters
+        await user.type(newFieldName, testFieldName);
+        await user.type(newFieldValue, testFieldValue);
+
+        // Click accept button
+        await user.click(acceptButton);
+
+        // New field should have rendered in the Selected User Details
+        expect(screen.getByText(`${testFieldName}: ${testFieldValue}`)).toBeInTheDocument();
     }
-)
+);
